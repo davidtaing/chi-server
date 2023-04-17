@@ -15,15 +15,15 @@ var (
 
 func GetDB() *sql.DB {
 	connStr := "host=localhost port=5432 user=myuser password=mypass dbname=restapi sslmode=disable"
-	DB, err := sql.Open("postgres", connStr)
+	db, err := sql.Open("postgres", connStr)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	err = DB.Ping()
+	err = db.Ping()
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	return DB
+	return db
 }
